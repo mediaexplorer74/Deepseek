@@ -5,6 +5,7 @@ Experimental Deepseek project... simplest console app for DeepSeek API micro-tes
 ## Status
 - DeepSeek generated this c# code. Not me :)
 - Azure.AI.Inference (prerelease) package used.
+- This console app based on .NET 4.8 framework
 - Draft / proto / not ready yet.
 
 ## References
