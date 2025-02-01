@@ -3,14 +3,12 @@
 
 Experimental Deepseek project... simplest uwp app for DeepSeek API micro-testin' on my old sweet Windows Family devices! ;) 
 
-## Status
-- Direct DeepSeek api using failed because of some unsolved technical reasons (see https://status.deepseek.com)
-- I realized "Plan B" via 
-
 ## Screenshot(s)
 ![Logo](Images/sshot01.png)
 
 ## Status
+- Direct DeepSeek api using failed because of some unsolved technical reasons (see https://status.deepseek.com)
+- I realized "Plan B" via OpenRouter "web-api service" (?)
 - Min. Win. OS build - 15063 (however, 10240 may be good too!))
 - Draft / proto / not ready yet.
 
