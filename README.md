@@ -5,7 +5,7 @@ Experimental Deepseek project... simplest uwp app for DeepSeek API micro-testin'
 
 ## Screenshots
 ![Logo](Images/shot01.png)
-![Logo](Images/shot01.png)
+![Logo](Images/shot02.png)
 
 
 ## Status
