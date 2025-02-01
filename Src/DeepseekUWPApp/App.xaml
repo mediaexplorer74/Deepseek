@@ -6,7 +6,11 @@
     
     <Application.Resources>
         <ResourceDictionary>
+            <!-- Converters -->
+            <local:DateTimeConverter x:Key="DateTimeConverter"/>
+
             <!--App-Wide Styles-->
+            <SolidColorBrush x:Key="TimestampForeground" Color="#666666"/>
             <SolidColorBrush x:Key="UserBubbleColor" Color="#0078D4"/>
             <SolidColorBrush x:Key="BotBubbleColor" Color="White"/>
         </ResourceDictionary>

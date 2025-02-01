@@ -1,4 +1,6 @@
-﻿using System;
+﻿// App.xaml.cs
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;

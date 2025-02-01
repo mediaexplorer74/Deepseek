@@ -11,7 +11,7 @@
     Publisher="CN=Admin"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="aa5c6fb4-cca6-4f85-bb73-a709d241ab05" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="aa5c6fb4-cca6-4f85-bb73-a709d241ab05" PhonePublisherId="85000075-0000-0035-0000-000025000005"/>
 
   <Properties>
     <DisplayName>DeepseekUWPApp</DisplayName>

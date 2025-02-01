@@ -1,12 +1,13 @@
-# Deepseek - uwp branch
+# Deepseek 1.0.0 - uwp branch
 ![Logo](Images/logo.png)
 
 Experimental Deepseek project... simplest uwp app for DeepSeek API micro-testin' on my old sweet Windows Family devices! ;) 
 
+_CAUTION_: this app is using a free model variant (ID is deepseek/deepseek-r1:free), then it will be limited to 10 requests per minute and 100 requests per day.
+
 ## Screenshots
 ![Logo](Images/shot01.png)
 ![Logo](Images/shot02.png)
-
 
 ## Status
 - Direct DeepSeek api using failed because of some unsolved technical reasons (see https://status.deepseek.com)
@@ -18,14 +19,16 @@ Experimental Deepseek project... simplest uwp app for DeepSeek API micro-testin'
 - Deepseek was co-pilot for this funny experimental uwp app (yea, AI is more clever then I/me)))) 
 - Chat bubbles with user/bot differentiation
 - Enter key support for sending messages
-- Auto-scroll to latest message (50 / 50)
-- Error handling with styled messages (50 / 50)
+- Auto-scroll to latest message 
+- Error handling with styled messages 
+- Loading indicator added
+- API key & daly requests limit storing realized
+- Message timestamp added
 
 ## ToDo
-- Add loading indicators
 - Support markdown/rich text in responses
-- Add message timestamps
 - Switch Min. Win. OS build to 10240 (Hello, W10M Astoria!))))
+- Realize "chatting memory" (and Many chats store/retreve)
 
 
 ## References

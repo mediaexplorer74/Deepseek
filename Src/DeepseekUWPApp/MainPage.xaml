@@ -10,14 +10,26 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
+    <!-- API Processing ProgressRing -->
+    <ProgressRing
+    x:Name="LoadingProgress"
+    Grid.Row="0"
+    Width="50"
+    Height="50"
+    IsActive="False"
+    Visibility="Collapsed"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"/>
+
         <!-- Chat Messages Area -->
         <ListView
             x:Name="ChatListView"
-            Grid.Row="0"
+            Grid.Row="1"
             Background="Transparent"
             ItemsSource="{x:Bind Messages}"
             Margin="10"
@@ -36,11 +48,19 @@
                             Padding="12"
                             Visibility="{x:Bind IsUserMessage, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
 
-                            <TextBlock
+                            <StackPanel>
+                                <TextBlock 
+                                    Text="{x:Bind Timestamp, Converter={StaticResource DateTimeConverter}}" 
+                                    Foreground="{StaticResource TimestampForeground}"
+                                    FontSize="12"
+                                    Margin="0,0,0,5"/>  
+                            
+                                <TextBlock
                                 Text="{x:Bind Content}"
                                 Foreground="White"
                                 TextWrapping="Wrap"
                                 MaxWidth="400"/>
+                            </StackPanel>
                         </Border>
 
                         <!-- Bot Message (Left-Aligned) -->
@@ -52,11 +72,18 @@
                             Padding="12"
                             Visibility="{x:Bind IsUserMessage, Mode=OneWay, Converter={StaticResource InverseBoolToVisibilityConverter}}">
 
-                            <TextBlock
+                            <StackPanel>
+                                <TextBlock 
+            Text="{x:Bind Timestamp, Converter={StaticResource DateTimeConverter}}" 
+            Foreground="{StaticResource TimestampForeground}"
+            FontSize="12"
+            Margin="0,0,0,5"/>
+                                <TextBlock
                                 Text="{x:Bind Content}"
                                 Foreground="Black"
                                 TextWrapping="Wrap"
                                 MaxWidth="400"/>
+                            </StackPanel>
                         </Border>
                     </Grid>
                 </DataTemplate>
@@ -64,7 +91,7 @@
         </ListView>
 
         <!-- Input Area -->
-        <Grid Grid.Row="1" Background="DarkGray" Padding="2">
+        <Grid Grid.Row="2" Background="DarkGray" Padding="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
@@ -91,4 +118,34 @@
                 Click="SendButton_Click"/>
         </Grid>
     </Grid>
+
+
+    <!-- BottomAppBar -->
+        <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.PrimaryCommands>
+
+
+                <AppBarToggleButton
+                    x:Name="Settings"
+                    x:Uid="Settings"
+                    Click="Settings_Click"
+                    Icon="Setting"
+                    Label="Settings"/>
+
+            </CommandBar.PrimaryCommands>
+
+
+            <CommandBar.SecondaryCommands>
+                <AppBarButton
+                    x:Name="Limits"
+                    x:Uid="Limits"
+                    Click="Limits_Click"
+                    Icon="Contact"
+                    Label="Limits"/>
+              
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+
 </Page>
