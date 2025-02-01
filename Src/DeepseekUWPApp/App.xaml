@@ -3,5 +3,12 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:DeepseekUWPApp">
-
+    
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--App-Wide Styles-->
+            <SolidColorBrush x:Key="UserBubbleColor" Color="#0078D4"/>
+            <SolidColorBrush x:Key="BotBubbleColor" Color="White"/>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>
