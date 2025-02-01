@@ -3,5 +3,16 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:DeepseekUWPApp">
+    
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Converters -->
+            <local:DateTimeConverter x:Key="DateTimeConverter"/>
 
+            <!--App-Wide Styles-->
+            <SolidColorBrush x:Key="TimestampForeground" Color="#666666"/>
+            <SolidColorBrush x:Key="UserBubbleColor" Color="#0078D4"/>
+            <SolidColorBrush x:Key="BotBubbleColor" Color="White"/>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>

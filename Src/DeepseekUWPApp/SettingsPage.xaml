@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="DeepseekUWPApp.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="#000000">
+
+    <StackPanel Padding="20" Spacing="10">
+        <TextBlock Text="API Settings" FontSize="24" FontWeight="Bold"/>
+        <PasswordBox x:Name="ApiKeyBox" Header="API Key" PlaceholderText="Enter your OpenRouter (Deepseek) API key"/>
+        <Button Content="Save API Key" Click="SaveApiKey_Click" Background="#0078D4" Foreground="White"/>
+    </StackPanel>
+
+    <!-- BottomAppBar -->
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.PrimaryCommands>
+
+                <AppBarToggleButton
+                     x:Name="Home"
+                     x:Uid="Home"
+                     Click="Home_Click"
+                     Icon="Home"
+                     Label="Home"/>
+
+            </CommandBar.PrimaryCommands>
+
+
+            <CommandBar.SecondaryCommands>
+                <AppBarButton
+                 x:Name="Limits"
+                 x:Uid="Limits"
+                 Click="Limits_Click"
+                 Icon="Contact"
+                 Label="Limits"/>            
+
+             
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+</Page>
