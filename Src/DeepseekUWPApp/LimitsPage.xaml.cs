@@ -11,32 +11,33 @@ namespace DeepseekUWPApp
 {
     public sealed partial class LimitsPage : Page
     {
-        private const string RequestLimitSetting = "DailyRequestLimit";
+        //private const string RequestLimitSetting = "DailyRequestLimit";
         private const string OpenRouterLimitsUrl = "https://openrouter.ai/api/v1/auth/key";
 
         public LimitsPage()
         {
             InitializeComponent();
-            LoadLimit();
+            //LoadLimit();
+            ShowApiKeyLimits();
         }
 
-        private void LoadLimit()
-        {
-            LimitTextBox.Text = ApplicationData.Current.LocalSettings.Values[RequestLimitSetting]?.ToString() ?? "30";
-        }
+        //private void LoadLimit()
+        //{
+        //    LimitTextBox.Text = ApplicationData.Current.LocalSettings.Values[RequestLimitSetting]?.ToString() ?? "30";
+        //}
 
-        private void SetLimit_Click(object sender, RoutedEventArgs e)
-        {
-            if (int.TryParse(LimitTextBox.Text, out int limit))
-            {
-                ApplicationData.Current.LocalSettings.Values[RequestLimitSetting] = limit;
-            }
-        }
+        //private void SetLimit_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (int.TryParse(LimitTextBox.Text, out int limit))
+        //    {
+        //        ApplicationData.Current.LocalSettings.Values[RequestLimitSetting] = limit;
+        //    }
+        //}
 
 
         // show API key limit
 
-        private async void CheckApiLimits_Click(object sender, RoutedEventArgs e)
+        private async void ShowApiKeyLimits()//CheckApiLimits_Click(object sender, RoutedEventArgs e)
         {
             var apiKey = ApplicationData.Current.LocalSettings.Values["DeepseekApiKey"]?.ToString();
 

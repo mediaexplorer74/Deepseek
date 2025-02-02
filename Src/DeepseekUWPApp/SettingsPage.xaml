@@ -17,27 +17,13 @@
     <Page.BottomAppBar>
         <CommandBar>
             <CommandBar.PrimaryCommands>
-
                 <AppBarToggleButton
                      x:Name="Home"
                      x:Uid="Home"
                      Click="Home_Click"
                      Icon="Home"
                      Label="Home"/>
-
             </CommandBar.PrimaryCommands>
-
-
-            <CommandBar.SecondaryCommands>
-                <AppBarButton
-                 x:Name="Limits"
-                 x:Uid="Limits"
-                 Click="Limits_Click"
-                 Icon="Contact"
-                 Label="Limits"/>            
-
-             
-            </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>
 

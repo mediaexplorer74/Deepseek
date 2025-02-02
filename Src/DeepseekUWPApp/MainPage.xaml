@@ -10,79 +10,62 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-    <!-- API Processing ProgressRing -->
-    <ProgressRing
-    x:Name="LoadingProgress"
-    Grid.Row="0"
-    Width="50"
-    Height="50"
-    IsActive="False"
-    Visibility="Collapsed"
-    HorizontalAlignment="Center"
-    VerticalAlignment="Center"/>
-
-        <!-- Chat Messages Area -->
-        <ListView
-            x:Name="ChatListView"
-            Grid.Row="1"
-            Background="Transparent"
-            ItemsSource="{x:Bind Messages}"
-            Margin="10"
-            ScrollViewer.VerticalScrollBarVisibility="Auto"
-            ScrollViewer.VerticalScrollMode="Auto">
-
+        <!-- Chat Messages -->
+        <ListView x:Name="ChatListView" Grid.Row="0"
+                  ItemsSource="{x:Bind Messages}"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  RightTapped="ChatListView_RightTapped">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:Message">
-                    <Grid Margin="0,5">
-                        <!-- User Message (Right-Aligned) -->
-                        <Border
-                            Background="#0078D4"
-                            CornerRadius="2"
-                            HorizontalAlignment="Right"
-                            Margin="40,0,0,0"
-                            Padding="12"
-                            Visibility="{x:Bind IsUserMessage, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+                    <Grid Margin="0,10" HorizontalAlignment="{x:Bind Alignment}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
+                        <!-- Favicon - Desktop only -->
+                        <!--PersonPicture Grid.Column="0"
+                                       Width="40" Height="40"
+                                       Margin="10"
+                                       ProfilePicture="{x:Bind Icon}"/-->
+                        <!-- Favicon Replacement -->
+                        <Grid Grid.Column="0" Width="40" Height="40" Margin="10">
+                            <Ellipse Fill="{StaticResource SystemControlBackgroundAltHighBrush}"/>
+
+                            <!-- Image/Initials Container -->
+                            <Viewbox MaxWidth="24" MaxHeight="24">
+                                <Grid>
+                                    <Image Source="{x:Bind Icon}"
+                           Visibility="{x:Bind Icon, Converter={StaticResource NullToVisibilityConverter}}"
+                           Stretch="Uniform"/>
+                                    <TextBlock Text="{x:Bind Initials}"
+                               Visibility="{x:Bind Icon, Converter={StaticResource InverseNullToVisibilityConverter}}"
+                               Foreground="{StaticResource SystemControlForegroundBaseHighBrush}"
+                               FontSize="16"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"/>
+                                </Grid>
+                            </Viewbox>
+                        </Grid>
+
+
+                        <!-- Chat Bubble CornerRadius="12"-->
+                        <Border Grid.Column="1"
+                                Background="{x:Bind BubbleColor}"
+                                Padding="15"
+                                MaxWidth="500">
                             <StackPanel>
-                                <TextBlock 
-                                    Text="{x:Bind Timestamp, Converter={StaticResource DateTimeConverter}}" 
-                                    Foreground="{StaticResource TimestampForeground}"
-                                    FontSize="12"
-                                    Margin="0,0,0,5"/>  
-                            
-                                <TextBlock
-                                Text="{x:Bind Content}"
-                                Foreground="White"
-                                TextWrapping="Wrap"
-                                MaxWidth="400"/>
-                            </StackPanel>
-                        </Border>
-
-                        <!-- Bot Message (Left-Aligned) -->
-                        <Border
-                            Background="White"
-                            CornerRadius="2"
-                            HorizontalAlignment="Left"
-                            Margin="0,0,40,0"
-                            Padding="12"
-                            Visibility="{x:Bind IsUserMessage, Mode=OneWay, Converter={StaticResource InverseBoolToVisibilityConverter}}">
-
-                            <StackPanel>
-                                <TextBlock 
-            Text="{x:Bind Timestamp, Converter={StaticResource DateTimeConverter}}" 
-            Foreground="{StaticResource TimestampForeground}"
-            FontSize="12"
-            Margin="0,0,0,5"/>
-                                <TextBlock
-                                Text="{x:Bind Content}"
-                                Foreground="Black"
-                                TextWrapping="Wrap"
-                                MaxWidth="400"/>
+                                <TextBlock Text="{x:Bind Content}"
+                                           Foreground="{x:Bind TextColor}"
+                                           TextWrapping="Wrap"/>
+                                <TextBlock Text="{x:Bind Timestamp, Converter={StaticResource DateTimeConverter}}"
+                                           Foreground="#666666"
+                                           FontSize="12"
+                                           Margin="0,5,0,0"/>
                             </StackPanel>
                         </Border>
                     </Grid>
@@ -90,62 +73,43 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <!-- Input Area -->
-        <Grid Grid.Row="2" Background="DarkGray" Padding="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-
-            <!--BorderBrush="#E0E0E0"-->
-                <TextBox
-                x:Name="InputTextBox"
-                PlaceholderText="Type your message..."
-                VerticalAlignment="Center"
-                BorderBrush="#E0E0E0"
-                Background="Black"
-                Height="128"
-                TextWrapping="Wrap"
-                KeyDown="InputTextBox_KeyDown"/>
-
-            <Button
-                Grid.Column="1"
-                Content="Send"
-                Margin="10,0,0,0"
-                Padding="20,10"
-                Background="#0078D4"
-                Foreground="White"
-                Click="SendButton_Click"/>
-        </Grid>
-    </Grid>
-
-
-    <!-- BottomAppBar -->
-        <Page.BottomAppBar>
-        <CommandBar>
+        <!-- AppBar with Primary Commands -->
+        <CommandBar Grid.Row="1" Background="Transparent" DefaultLabelPosition="Right">
             <CommandBar.PrimaryCommands>
-
-
-                <AppBarToggleButton
-                    x:Name="Settings"
-                    x:Uid="Settings"
-                    Click="Settings_Click"
-                    Icon="Setting"
-                    Label="Settings"/>
-
+                <AppBarToggleButton Icon="Setting" Label="Settings" Click="SettingsButton_Click"/>
+                <AppBarToggleButton Icon="Calendar" Label="Limits" Click="LimitsButton_Click"/>
+                <AppBarToggleButton Icon="Share" Label="Share Chat" Click="ShareButton_Click"/>
             </CommandBar.PrimaryCommands>
 
+            <!-- Input Area with Send Button -->
+            <CommandBar.Content>
+                <Grid Margin="10,0" Width="400">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
 
-            <CommandBar.SecondaryCommands>
-                <AppBarButton
-                    x:Name="Limits"
-                    x:Uid="Limits"
-                    Click="Limits_Click"
-                    Icon="Contact"
-                    Label="Limits"/>
-              
-            </CommandBar.SecondaryCommands>
+                    <TextBox x:Name="InputTextBox"
+                             Grid.Column="0"
+                             PlaceholderText="Type your message..."
+                             KeyDown="InputTextBox_KeyDown"/>
+
+                    <Button Grid.Column="1"
+                            Content="Send"
+                            Margin="10,0,0,0"
+                            Padding="15,8"
+                            Click="SendButton_Click"
+                            Background="#0078D4"
+                            Foreground="White"/>
+                </Grid>
+            </CommandBar.Content>
         </CommandBar>
-    </Page.BottomAppBar>
 
+        <!-- Loading Indicator -->
+        <ProgressRing x:Name="LoadingProgress"
+                      Width="50" Height="50"
+                      IsActive="False" Visibility="Collapsed"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"/>
+    </Grid>
 </Page>
