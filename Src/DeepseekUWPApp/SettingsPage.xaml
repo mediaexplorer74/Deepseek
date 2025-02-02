@@ -7,7 +7,7 @@
     mc:Ignorable="d"
     Background="#000000">
 
-    <StackPanel Padding="20" Spacing="10">
+    <StackPanel Padding="20">
         <TextBlock Text="API Settings" FontSize="24" FontWeight="Bold"/>
         <PasswordBox x:Name="ApiKeyBox" Header="API Key" PlaceholderText="Enter your OpenRouter (Deepseek) API key"/>
         <Button Content="Save API Key" Click="SaveApiKey_Click" Background="#0078D4" Foreground="White"/>

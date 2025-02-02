@@ -9,12 +9,12 @@
   <Identity
     Name="ME.DeepseekUWPAppV1"
     Publisher="CN=Admin"
-    Version="1.0.0.0" />
+    Version="1.0.1.0" />
 
-  <mp:PhoneIdentity PhoneProductId="aa5c6fb4-cca6-4f85-bb73-a709d241ab05" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="aa5c6fb4-cca6-4f85-bb73-a709d241ab05" PhonePublisherId="85000075-0000-0035-0000-000025000005"/>
 
   <Properties>
-    <DisplayName>DeepseekUWPApp</DisplayName>
+    <DisplayName>Deepseek 1.0.1</DisplayName>
     <PublisherDisplayName>Admin</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -32,7 +32,7 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="DeepseekUWPApp.App">
       <uap:VisualElements
-        DisplayName="DeepseekUWPApp"
+        DisplayName="Deepseek 1.0.1"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
         Description="DeepseekUWPApp"
@@ -48,5 +48,6 @@
   </Applications>
 
   <Capabilities>
-    <Capability Name="internetClient"/></Capabilities>
+    <Capability Name="internetClient"/>
+    <uap:Capability Name="removableStorage"/></Capabilities>
 </Package>
