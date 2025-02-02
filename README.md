@@ -35,6 +35,11 @@ _CAUTION_: this app is using a free model variant (ID is deepseek/deepseek-r1:fr
 - Support markdown/rich text in responses
 - Switch Min. Win. OS build to 10240 (Hello, W10M Astoria!))))
 
+## Conclusion
+
+I decided to share my dialogue with DeepSeek UI.. how to create Deepseek uwp app "template-prototype". 
+So, look at Wiki: https://github.com/mediaexplorer74/Deepseek/wiki/
+
 ## References
 - https://status.deepseek.com (Status of DeepSeek project... API problems seem not critical for Plan B!)
 - https://deepseek.com (Registration & Deepseek API Key "getting" for Plan A, not Plan B)))
