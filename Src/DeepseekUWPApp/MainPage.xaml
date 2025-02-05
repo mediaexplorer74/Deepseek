@@ -57,7 +57,8 @@
                         <Border Grid.Column="1"
                                 Background="{x:Bind BubbleColor}"
                                 Padding="15"
-                                MaxWidth="500">
+                                MaxWidth="300"
+                                >
                             <StackPanel>
                                 <TextBlock Text="{x:Bind Content}"
                                            Foreground="{x:Bind TextColor}"
@@ -78,12 +79,12 @@
             <CommandBar.PrimaryCommands>
                 <AppBarToggleButton Icon="Setting" Label="Settings" Click="SettingsButton_Click"/>
                 <AppBarToggleButton Icon="Calendar" Label="Limits" Click="LimitsButton_Click"/>
-                <AppBarToggleButton Icon="Share" Label="Share Chat" Click="ShareButton_Click"/>
+                <AppBarToggleButton Icon="ReShare" Label="Share Chat" Click="ShareButton_Click"/>
             </CommandBar.PrimaryCommands>
 
             <!-- Input Area with Send Button -->
             <CommandBar.Content>
-                <Grid Margin="10,0" Width="400">
+                <Grid Margin="10,0" Width="312">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
@@ -96,8 +97,8 @@
 
                     <Button Grid.Column="1"
                             Content="Send"
-                            Margin="10,0,0,0"
-                            Padding="15,8"
+                            Margin="2,0,8,0"
+                            Padding="2,2"
                             Click="SendButton_Click"
                             Background="#0078D4"
                             Foreground="White"/>
