@@ -56,8 +56,7 @@
                         <!-- Chat Bubble CornerRadius="12"-->
                         <Border Grid.Column="1"
                                 Background="{x:Bind BubbleColor}"
-                                Padding="15"
-                                MaxWidth="300"
+                                Padding="15"                                
                                 >
                             <StackPanel>
                                 <TextBlock Text="{x:Bind Content}"

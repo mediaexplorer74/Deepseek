@@ -1,22 +1,23 @@
 ﻿// Main Page
 
+using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.DataTransfer;
+using Windows.Storage;
+using Windows.Storage.Streams;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
-using Newtonsoft.Json;
-using System.Diagnostics;
-using Windows.UI.Xaml.Navigation;
-using Windows.Storage;
-using Windows.ApplicationModel.DataTransfer;
-using Windows.Storage.Streams;
-using Windows.UI.Popups;
 using Windows.UI.Xaml.Input;
-using System.Collections.Generic;
+using Windows.UI.Xaml.Navigation;
 
 namespace DeepseekUWPApp
 {
@@ -73,7 +74,7 @@ namespace DeepseekUWPApp
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            await LoadChatHistory();
+            await RefreshChatHistory();//await LoadChatHistory();
         }
 
         protected override async void OnNavigatedFrom(NavigationEventArgs e)
@@ -82,7 +83,7 @@ namespace DeepseekUWPApp
             await SaveChatHistory();
         }
 
-        private async Task LoadChatHistory()
+        /*private async Task LoadChatHistory()
         {
             var savedMessages = await ChatStorageHelper.LoadChatAsync();
             _messages = savedMessages;
@@ -91,6 +92,20 @@ namespace DeepseekUWPApp
             foreach (var msg in savedMessages)
             {
                 Messages.Add(msg);
+            }
+        }*/
+        public async Task RefreshChatHistory()
+        {
+            _messages = await ChatStorageHelper.LoadChatAsync();
+            Messages.Clear();
+            foreach (var msg in _messages)
+            {
+                Messages.Add(msg);
+            }
+
+            if (ChatListView.Items.Count > 0)
+            {
+                ChatListView.ScrollIntoView(ChatListView.Items.Last());
             }
         }
 

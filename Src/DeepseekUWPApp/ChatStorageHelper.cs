@@ -40,6 +40,19 @@ namespace DeepseekUWPApp
             }
         }
 
+        public static async Task DeleteChatAsync()
+        {
+            try
+            {
+                StorageFile file = await ApplicationData.Current.LocalFolder.GetFileAsync(ChatFileName);
+                await file.DeleteAsync();
+            }
+            catch 
+            {
+                // Chat file doesn't exist - nothing to delete
+            }
+        }
+
         private class ChatData
         {
             public List<Message> Messages { get; set; }

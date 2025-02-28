@@ -1,4 +1,4 @@
-# Deepseek 1.0.3 - uwp branch
+# Deepseek 1.0.4 - uwp branch
 ![Logo](Images/logo.png)
 
 Experimental Deepseek project... simplest uwp app for DeepSeek API micro-testin' on my old sweet Windows Family devices! ;) 
@@ -6,8 +6,9 @@ Experimental Deepseek project... simplest uwp app for DeepSeek API micro-testin'
 _CAUTION_: this app is using a free model variant (ID is deepseek/deepseek-r1:free), then it will be limited to 10 requests per minute and 100 requests per day.
 
 ## Screenshot(s)
-![Logo](Images/sshot01.png)
-![Logo](Images/sshot02.png)
+![Windows 11 Desktop](Images/screenshot01.png)
+![Windows 11 Desktop](Images/screenshot02.png)
+![Windows 10 Mobile](Images/screenshot03.png)
 
 ## Status
 - Direct DeepSeek api using failed because of some unsolved technical reasons (see https://status.deepseek.com)
@@ -26,6 +27,7 @@ _CAUTION_: this app is using a free model variant (ID is deepseek/deepseek-r1:fr
 - Message timestamp added
 - Chat conversation save/restore added
 - Chat conversation Share added (single message - long tap/right click, and all messages via Share button)
+- "Clear chat conversation" button (see Settings page)
 - W10M 15063+ compatibility repaired!
 
 ## Known problems 
@@ -40,7 +42,7 @@ _CAUTION_: this app is using a free model variant (ID is deepseek/deepseek-r1:fr
 
 ## Conclusion
 
-I decided to share my dialogue with DeepSeek UI.. how to create Deepseek uwp app "template-prototype". 
+I decided to share my dialogue with DeepSeek AI.. how to create Deepseek uwp app "template-prototype". ;)
 So, look at Wiki: https://github.com/mediaexplorer74/Deepseek/wiki/
 
 ## References

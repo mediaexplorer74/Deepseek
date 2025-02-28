@@ -8,10 +8,23 @@
     Background="#000000">
 
     <StackPanel Padding="20">
+        <!-- API Key Section -->
         <TextBlock Text="API Settings" FontSize="24" FontWeight="Bold"/>
         <PasswordBox x:Name="ApiKeyBox" Header="API Key" PlaceholderText="Enter your OpenRouter (Deepseek) API key"/>
         <Button Content="Save API Key" Click="SaveApiKey_Click" Background="#0078D4" Foreground="White"/>
+
+        <!-- Chat History Section -->
+        <Rectangle Height="1" Margin="0,20" Fill="{ThemeResource SystemControlBackgroundBaseLowBrush}"/>
+        <TextBlock Text="Chat History" FontSize="24" FontWeight="Bold"/>
+        <Button 
+            Content="Clear All Chat History"
+            Click="ClearChatButton_Click"
+            Background="#FF4444"
+            Foreground="White"
+            Padding="15,8"
+            HorizontalAlignment="Left"/>
     </StackPanel>
+    
 
     <!-- BottomAppBar -->
     <Page.BottomAppBar>
