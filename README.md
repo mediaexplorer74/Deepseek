@@ -9,7 +9,7 @@ _CAUTION_: this app is using a free model variant (ID is deepseek/deepseek-r1:fr
 ![Windows 11 Desktop](Images/screenshot.png)
 
 ## Status
-- "Almost emtpy" vs extension. Sunject to change
+- "Almost emtpy" vs extension. Subject to change (codename is DeepseekVS)
 - Draft / proto / not ready /work in progress
 - OpenRouter.AI API key needs to be hardcoded into "AIDialog.xaml.cs" (no settings yet!)
 
