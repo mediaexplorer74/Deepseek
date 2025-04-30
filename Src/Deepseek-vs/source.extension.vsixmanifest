@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="OpenRouterAIExtension.4d64e9d7-6a9d-4358-b445-46eb6e4b21c7" Version="1.0" Language="en-US" Publisher="Andrey Zakharov" />
-    <DisplayName>OpenRouterAIExtension</DisplayName>
-    <Description>Empty VSIX Project.</Description>
+    <Identity Id="DeepSeek-vs.4d64e9d7-6a9d-4358-b445-46eb6e4b21c7" Version="1.0" Language="en-US" Publisher="MediaExplorer" />
+    <DisplayName>DeepSeek-vs</DisplayName>
+    <Description>VS 2022 Extension for simple Deepseek chat via OpenRouter gateway</Description>
   </Metadata>
   <Installation>
     <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">

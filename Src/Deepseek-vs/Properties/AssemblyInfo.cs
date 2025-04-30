@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("OpenRouterAIExtension")]
+[assembly: AssemblyTitle("DeepSeek-vs")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("OpenRouterAIExtension")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyProduct("DeepSeek-vs")]
+[assembly: AssemblyCopyright(" 2025 ME ")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
