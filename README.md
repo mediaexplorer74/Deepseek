@@ -13,7 +13,7 @@ _CAUTION_: this app is using a free model variant (ID is deepseek/deepseek-r1:fr
 ## Status
 - "Almost emtpy" vs extension. Subject to change (codename is DeepseekVS)
 - Draft / proto / not ready /work in progress
-- OpenRouter.AI API key needs to be hardcoded into "AIDialog.xaml.cs" (no settings yet!)
+- OpenRouter.AI API key needs to be hardcoded into "ChatWindowControl.xaml.cs" (get api key from settings failed, sadly!)
 
 # How-to use this extension
 - Try Tools-Settings to set Model and Api key
