@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using Task = System.Threading.Tasks.Task;
 
-namespace OpenRouterAIExtension
+namespace DeepSeekVS
 {
     /// <summary>
     /// This is the class that implements the package exposed by this assembly.
@@ -24,30 +24,23 @@ namespace OpenRouterAIExtension
     /// </para>
     /// </remarks>
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
-    [Guid(OpenRouterAIExtensionPackage.PackageGuidString)]
+    [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
-    public sealed class OpenRouterAIExtensionPackage : AsyncPackage
+    [ProvideToolWindow(typeof(ChatWindow))]
+    [ProvideOptionPage(typeof(OptionsPage), "DeepSeek", "API Settings", 0, 0, true)]
+    [Guid(DeepSeekVSPackage.PackageGuidString)]
+    public sealed class DeepSeekVSPackage : AsyncPackage
     {
-        /// <summary>
-        /// OpenRouterAIExtensionPackage GUID string.
-        /// </summary>
-        public const string PackageGuidString = "c139ef4a-d8e9-4b34-bf90-1bf354ee67c9";
+         // DeepSeekVSPackage GUID string.
+        public const string PackageGuidString = "4c693461-7a51-4375-870b-dc0422539083";
 
         #region Package Members
 
-        /// <summary>
-        /// Initialization of the package; this method is called right after the package is sited, so this is the place
-        /// where you can put all the initialization code that rely on services provided by VisualStudio.
-        /// </summary>
-        /// <param name="cancellationToken">A cancellation token to monitor for initialization cancellation, which can occur when VS is shutting down.</param>
-        /// <param name="progress">A provider for progress updates.</param>
-        /// <returns>A task representing the async work of package initialization, or an already completed task if there is none. Do not return null from this method.</returns>
         protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
         {
-            // When initialized asynchronously, the current thread may be a background thread at this point.
-            // Do any initialization that requires the UI thread after switching to the UI thread.
             await this.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
-            await ShowAIDialogCommand.InitializeAsync(this);
+            //await OptionsPageCommand.InitializeAsync(this);
+            await ChatWindowCommand.InitializeAsync(this);
         }
 
         #endregion
