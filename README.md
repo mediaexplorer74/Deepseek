@@ -7,7 +7,7 @@ _CAUTION_: this app is using a free model variant (ID is deepseek/deepseek-r1:fr
 
 ## Screenshot(s)
 ![Tools and Settings](Images/sshot01.png)
-![Chat Window](Images/sshot2.png)
+![Chat Window](Images/sshot02.png)
 
 
 ## Status
