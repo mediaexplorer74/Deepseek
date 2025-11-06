@@ -11,21 +11,34 @@ namespace DeepseekUWPApp
     public sealed partial class SettingsPage : Page
     {
         private const string ApiKeySetting = "DeepseekApiKey";
+        private const string ModelIdSetting = "DeepseekModelId";
 
         public SettingsPage()
         {
             InitializeComponent();
-            LoadApiKey();
+            LoadSettings();
         }
 
-        private void LoadApiKey()
+        private void LoadSettings()
         {
             ApiKeyBox.Password = ApplicationData.Current.LocalSettings.Values[ApiKeySetting]?.ToString() ?? "";
+
+            var modelBox = this.FindName("ModelIdBox") as TextBox;
+            if (modelBox != null)
+            {
+                modelBox.Text = ApplicationData.Current.LocalSettings.Values[ModelIdSetting]?.ToString() ?? "deepseek/deepseek-r1:free";
+            }
         }
 
         private void SaveApiKey_Click(object sender, RoutedEventArgs e)
         {
             ApplicationData.Current.LocalSettings.Values[ApiKeySetting] = ApiKeyBox.Password;
+
+            var modelBox = this.FindName("ModelIdBox") as TextBox;
+            if (modelBox != null)
+            {
+                ApplicationData.Current.LocalSettings.Values[ModelIdSetting] = modelBox.Text;
+            }
         }
 
         private async void ClearChatButton_Click(object sender, RoutedEventArgs e)

@@ -192,7 +192,17 @@ namespace DeepseekUWPApp
                 var shareItem = new MenuFlyoutItem { Text = "Share" };
                 shareItem.Click += (s, args) => ShareSingleMessage(message);
 
+                var copyItem = new MenuFlyoutItem { Text = "Copy to clipboard" };
+                copyItem.Click += (s, args) =>
+                {
+                    var dataPackage = new DataPackage();
+                    dataPackage.Properties.Title = "Chat Message";
+                    dataPackage.SetText($"[{message.Timestamp:HH:mm}] {(message.IsUserMessage ? "You" : "AI")}:\n{message.Content}");
+                    Clipboard.SetContent(dataPackage);
+                };
+
                 flyout.Items.Add(shareItem);
+                flyout.Items.Add(copyItem);
                 flyout.ShowAt(element, e.GetPosition(element));
             }
         }
@@ -301,12 +311,13 @@ namespace DeepseekUWPApp
             using (HttpClient client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Add("Authorization", $"Bearer {ApiKey}");
-                //client.DefaultRequestHeaders.Add("HTTP-Referer", "https://github.com/mediaexplorer74/Deepseek"); // Required by OpenRouter
-                //client.DefaultRequestHeaders.Add("X-Title", "DeepseekUWPApp"); // Optional
+
+                // Determine model id from settings (default to deepseek/deepseek-r1:free)
+                string modelId = ApplicationData.Current.LocalSettings.Values["DeepseekModelId"]?.ToString() ?? "deepseek/deepseek-r1:free";
 
                 var requestBody = new
                 {
-                    model = "deepseek/deepseek-r1:free",//"deepseek-chat",
+                    model = modelId, // use configured model id
                     messages = new[]
                     {
                         new { role = "user", content = inputText }

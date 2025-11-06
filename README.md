@@ -1,4 +1,4 @@
-# Deepseek 1.0.4 - uwp branch
+# Deepseek 1.0.7 - uwp branch
 ![Logo](Images/logo.png)
 
 Experimental Deepseek project... simplest uwp app for DeepSeek API micro-testin' on my old sweet Windows Family devices! ;) 
@@ -6,11 +6,12 @@ Experimental Deepseek project... simplest uwp app for DeepSeek API micro-testin'
 _CAUTION_: this app is using a free model variant (ID is deepseek/deepseek-r1:free), then it will be limited to 10 requests per minute and 100 requests per day.
 
 ## Screenshot(s)
-![Windows 11 Desktop](Images/screenshot01.png)
-![Windows 11 Desktop](Images/screenshot02.png)
-![Windows 10 Mobile](Images/screenshot03.png)
+![Windows 10 Mobile](Images/sshot01.png)
+![Windows 10 Mobile](Images/sshot02.png)
 
 ## Status
+- OpenRouter AI Model id added to Settings page
+- Copy to clipboard added (see Chat - Item - Long tap - Flyout menu)
 - Direct DeepSeek api using failed because of some unsolved technical reasons (see https://status.deepseek.com)
 - I realized "Plan B" via OpenRouter "web-api service" (?)
 - Min. Win. OS build - 15063 (however, 10240 may be good too!))
@@ -55,4 +56,4 @@ So, look at Wiki: https://github.com/mediaexplorer74/Deepseek/wiki/
 As is. No support. RnD only. DIY.
 
 ## .
-[m][e] 2025
+[m][e] Nov, 6 2025

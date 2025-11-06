@@ -9,9 +9,13 @@
 
     <StackPanel Padding="20">
         <!-- API Key Section -->
-        <TextBlock Text="API Settings" FontSize="24" FontWeight="Bold"/>
+        <TextBlock Text="OpenRouter.ai API Settings" FontSize="24" FontWeight="Bold"/>
         <PasswordBox x:Name="ApiKeyBox" Header="API Key" PlaceholderText="Enter your OpenRouter (Deepseek) API key"/>
-        <Button Content="Save API Key" Click="SaveApiKey_Click" Background="#0078D4" Foreground="White"/>
+
+        <!-- Model ID -->
+        <TextBox x:Name="ModelIdBox" Header="Model id" PlaceholderText="Enter model id (e.g. deepseek/deepseek-r1:free)" Text="deepseek/deepseek-r1:free"/>
+
+        <Button Content="Save Settings" Click="SaveApiKey_Click" Background="#0078D4" Foreground="White"/>
 
         <!-- Chat History Section -->
         <Rectangle Height="1" Margin="0,20" Fill="{ThemeResource SystemControlBackgroundBaseLowBrush}"/>
